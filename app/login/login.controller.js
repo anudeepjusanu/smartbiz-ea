@@ -11,6 +11,7 @@
 
         };
         vm.login = login;
+        vm.register = register;
 
         function login(loginForm) {
             if (loginForm.$valid) {
@@ -31,6 +32,10 @@
                 noty.showError("Please fill required fields")
             }
 
+        }
+
+        function register() {
+            $state.go('register');
         }
 
         function init() {

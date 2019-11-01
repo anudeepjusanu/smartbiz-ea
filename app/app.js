@@ -41,7 +41,7 @@
                 templateUrl: 'register/register.html',
                 controller: 'Register.IndexController',
                 controllerAs: 'vm',
-                data: { activeTab: 'login' }
+                data: { activeTab: 'register' }
             })
             .state('home', {
                 url: '/',
@@ -168,13 +168,17 @@
 
     function run($http, $rootScope, $window, UserService, $timeout, $state) {
         // add JWT token as default auth header
-        console.log($window.jwtToken);
         $http.defaults.headers.common['Authorization'] = 'Bearer ' + $window.jwtToken;
         $rootScope.$on('$stateChangeStart', function (event, next, params) {
             if (!$window.jwtToken) {
                 if (next && next.name != 'login') {
-                    event.preventDefault();
-                    $state.go('login');
+                    if (next.name === 'register') {
+
+                    }
+                    else {
+                        event.preventDefault();
+                        $state.go('login');
+                    }
                 } else { }
 
             } else {
