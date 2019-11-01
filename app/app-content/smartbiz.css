@@ -1,0 +1,18 @@
+.chip-out-focus {
+    border: 1px solid #e0e0e0;
+}
+
+.wl-chips {
+    margin-bottom: 10px;
+}
+.panel-body.panel-body-table td, .panel-body.panel-body-table th{
+    padding: 4px 5px!important;
+}
+.dropdown-menu-form {
+    padding: 5px 10px 0;
+    max-height: 240px;
+    overflow-y: scroll;
+}
+.dropdown-item{
+    padding-left: 20px;
+}

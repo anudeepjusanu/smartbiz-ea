@@ -1,0 +1,79 @@
+﻿<!-- START BREADCRUMB -->
+<ul class="breadcrumb">
+    <li><a ui-sref="home">Home</a></li>
+    <li class="active">Dashboard</li>
+</ul>
+<!-- END BREADCRUMB -->
+<div class="page-content-wrap">
+    <!-- START WIDGETS -->
+    <div class="row">
+        <div class="col-md-4">
+            <!-- START WIDGET MESSAGES -->
+            <div class="widget widget-default widget-item-icon" ng-click="vm.gotoFarmers()">
+                <div class="widget-item-left">
+                    <span class="fa fa-user"></span>
+                </div>
+                <div class="widget-data">
+                    <div class="widget-int num-count">{{vm.farmers.length}}</div>
+                    <div class="widget-title">Farmers</div>
+                    <div class="widget-subtitle">In Rythu Rajyam</div>
+                </div>
+            </div>
+            <!-- END WIDGET MESSAGES -->
+        </div>
+        <div class="col-md-4">
+            <!-- START WIDGET MESSAGES -->
+            <div class="widget widget-default widget-item-icon" ng-click="vm.gotoExecutives()">
+                <div class="widget-item-left">
+                    <span class="fa fa-user"></span>
+                </div>
+                <div class="widget-data">
+                    <div class="widget-int num-count">{{vm.executives.length}}</div>
+                    <div class="widget-title">Executives</div>
+                    <div class="widget-subtitle">In Rythu Rajyam</div>
+                </div>
+            </div>
+            <!-- END WIDGET MESSAGES -->
+        </div>
+        <div class="col-md-4">
+            <!-- START WIDGET CLOCK -->
+            <div class="widget widget-info widget-padding-sm" ng-if="vm.user.role != 'FARMER'">
+                <div class="widget-big-int plugin-clock">{{vm.date | date:'shortTime'}}</div>
+                <div class="widget-subtitle plugin-date">{{vm.date | date: 'EEEE, MMMM d, yyyy'}}</div>
+            </div>
+            <!-- END WIDGET CLOCK -->
+            <div class="widget widget-default widget-item-icon" ng-if="vm.user.role === 'FARMER'">
+                <div class="widget-item-left">
+                    <span class="fa fa-inr"></span>
+                </div>
+                <div class="widget-data">
+                    <div class="widget-int num-count">{{vm.user.amountUtilized}}</div>
+                    <div class="widget-title">Amount Utilized</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END WIDGETS -->
+    <div class="row" ng-if="vm.user && vm.user.role === 'FARMER'">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Inventory</th>
+                    <th>Requested Quantity</th>
+                    <th>Approved Quantity</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+                <tr ng-repeat="order in vm.farmerOrders">
+                    <td>{{order.inventoryName}}</td>
+                    <td>{{order.quantity}}</td>
+                    <td>{{order.approvedQuantity}}</td>
+                    <td>{{order.approvedPrice}}</td>
+                    <td>{{order.date}}</td>
+                    <td>{{order.status}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

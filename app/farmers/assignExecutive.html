@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Assign Executive</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <table class="table table-bordered">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Mobile</th>
+            <th>Actions</th>
+        </tr>
+        <tr ng-repeat="executive in vm.executives">
+            <td>{{executive.firstName}}</td>
+            <td>{{executive.lastName}}</td>
+            <td>{{executive.mobile}}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="vm.assign(executive)">Assign</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+</div>

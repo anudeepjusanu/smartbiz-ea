@@ -1,0 +1,33 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <br />
+    <div class="row clearfix">
+        <h2 class="pull-left">Farmers</h2>
+    </div>
+    <br />
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Executive</th>
+                <th>Actions</th>
+            </tr>
+            <tr ng-repeat="farmer in vm.farmers">
+                <td>{{farmer.firstName}}</td>
+                <td>{{farmer.lastName}}</td>
+                <td>{{farmer.mobile}}</td>
+                <td>{{farmer.email}}</td>
+                <td>{{farmer.executiveName}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="vm.deleteFarmer(farmer._id)">Delete</button>
+                    <button class="btn btn-primary" ng-if="vm.user.role === 'admin'" ng-click="vm.assignExecutive(farmer)">Assign
+                        Executive</button>
+                    <button class="btn btn-primary" ui-sref="viewFarmer({id:farmer._id})">View</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

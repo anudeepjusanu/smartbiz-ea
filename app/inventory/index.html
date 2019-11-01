@@ -1,0 +1,29 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="row">
+        <br />
+        <a class="btn btn-primary" ui-sref="addInventory">Add Inventory</a>
+    </div>
+    <br />
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Date</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+            <tr ng-repeat="inventory in vm.inventories">
+                <td>{{inventory.name}}</td>
+                <td>{{inventory.quantity}}</td>
+                <td>{{inventory.date}}</td>
+                <td>{{inventory.active}}</td>
+                <td>
+                    <button class="btn btn-primary" ui-sref="updateInventory({id: inventory._id})">Update</button>
+                    <button class="btn btn-primary" ng-click="vm.deleteInventory(inventory._id)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

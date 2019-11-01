@@ -1,0 +1,31 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="row">
+        <br />
+        <a class="btn btn-primary" ui-sref="searchFarmer">Add Order</a>
+    </div>
+    <br />
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <th>Inventory</th>
+                <th>Quantity</th>
+                <th>Farmer</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            <tr ng-repeat="order in vm.orders">
+                <td>{{order.inventoryName}}</td>
+                <td>{{order.quantity}}</td>
+                <td>{{order.farmerName}}</td>
+                <td>{{order.date}}</td>
+                <td>{{order.status}}</td>
+                <td ng-if="order.status != 'completed'">
+                    <button class="btn btn-primary" ui-sref="updateOrder({farmerId:order.farmerId,id: order._id})">Update</button>
+                    <button class="btn btn-primary" ng-click="vm.deleteOrder(order._id)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

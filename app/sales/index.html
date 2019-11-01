@@ -1,0 +1,33 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <br />
+    <div class="row clearfix">
+        <h2 class="pull-left">Sales</h2>
+        <a class="btn btn-primary pull-left" style="margin-left:10px;" ui-sref="openOrders">Open Orders</a>
+    </div>
+    <br />
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <th>Inventory</th>
+                <th>Quantity</th>
+                <th>Farmer</th>
+                <th>Date</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            <tr ng-repeat="sale in vm.sales">
+                <td>{{sale.inventoryName}}</td>
+                <td>{{sale.quantity}}</td>
+                <td>{{sale.farmerName}}</td>
+                <td>{{sale.date}}</td>
+                <td>{{sale.price}}</td>
+                <td>{{sale.status}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="vm.completeOrder(sale._id)">Complete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

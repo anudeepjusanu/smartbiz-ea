@@ -1,0 +1,32 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <br />
+    <div class="row clearfix">
+        <h2 class="pull-left">Open Orders</h2>
+        <a class="btn btn-primary pull-left" style="margin-left:10px;" ui-sref="sales">Sales</a>
+    </div>
+    <br />
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <th>Inventory</th>
+                <th>Quantity</th>
+                <th>Farmer</th>
+                <th>Date</th>
+                <th>Executive</th>
+                <th>Actions</th>
+            </tr>
+            <tr ng-repeat="order in vm.orders">
+                <td>{{order.inventoryName}}</td>
+                <td>{{order.quantity}}</td>
+                <td>{{order.farmerName}}</td>
+                <td>{{order.date}}</td>
+                <td>{{order.orderdByName}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="vm.fulfill(order)">Fulfill</button>
+                    <button class="btn btn-primary" ng-click="vm.rejectOrder(order._id)">Reject</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

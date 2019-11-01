@@ -1,0 +1,81 @@
+<div class="login-container lightmode" style="min-height:650px;">
+    <div class="login-box animated fadeInDown" style="width:800px;">
+        <div class="login-logo"></div>
+        <div class="login-body">
+            <div class="login-title"><strong>Register</strong></div>
+            <form class="form-horizontal" method="post" name="registerForm">
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="firstName" name="firstName" ng-model="vm.registerObj.firstName"
+                            placeholder="First Name" ng-required="true">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="lastName" name="lastName" ng-model="vm.registerObj.lastName"
+                            placeholder="Last Name" ng-required="true">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="mobile" name="mobile" ng-model="vm.registerObj.mobile"
+                            placeholder="Phone" ng-required="true">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" class="form-control" id="email" name="email" ng-model="vm.registerObj.email"
+                            placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="aadhar" name="aadhar" ng-model="vm.registerObj.aadhar"
+                            placeholder="Aadhar">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="landInAcres" name="landInAcres" ng-model="vm.registerObj.landInAcres"
+                            placeholder="Land in acres">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <textarea class="form-control" placeholder="Address" rows="3" ng-model="vm.registerObj.address"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="city" name="city" ng-model="vm.registerObj.city"
+                            placeholder="City">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="state" name="state" ng-model="vm.registerObj.state"
+                            placeholder="State">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="number" class="form-control" name="pinCode" id="pinCode" ng-model="vm.registerObj.pinCode"
+                            placeholder="Pin Code" ng-required="true">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="password" class="form-control" name="password" id="password" ng-model="vm.registerObj.password"
+                            placeholder="Password" ng-required="true">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-info btn-block" ng-click="vm.register(registerForm)">Register</button>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="login-footer">
+            <div class="pull-left">
+                &copy; 2019 SmartBiz
+            </div>
+        </div>
+    </div>
+</div>
