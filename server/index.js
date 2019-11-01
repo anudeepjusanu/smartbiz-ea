@@ -5,7 +5,6 @@
 
 const express = require('express');
 const logger = require('./util//logger');
-const compression = require('compression');
 var { v1_base_path, secret, dburl } = require('../config');
 const argv = require('./util/argv');
 const port = require('./util//port');
@@ -18,10 +17,20 @@ var Router = require('./app/routes/index');
 var session = require('express-session');
 var cors = require('cors');
 var mongoose = require('mongoose');
+var rfs = require('rotating-file-stream');
+var morganBody = require('morgan-body');
 
 const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+var accessLogStream = rfs('access.log', {
+  interval: '1d', // rotate daily
+  path: path.join(__dirname, 'log')
+});
+
+app.use(bodyParser.json()); //parsing request body
+morganBody(app);
+morganBody(app, { stream: accessLogStream, noColors: true });
 app.use(bodyParser.json()); //parsing request body
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({ secret: secret, resave: false, saveUninitialized: true }));
@@ -32,15 +41,6 @@ app.get('/*', (req, res, next) => {
   res.setHeader('Expires', new Date(Date.now() + 85000000).toUTCString());
   next();
 });
-
-function shouldCompress(req, res) {
-  if (req.headers['x-no-compression']) return false;
-  return compression.filter(req, res);
-}
-app.use(compression({
-  level: 2, // set compression level from 1 to 9 (6 by default)
-  filter: shouldCompress, // set predicate to determine whether to compress
-}));
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
