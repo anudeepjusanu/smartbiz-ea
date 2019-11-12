@@ -7,6 +7,7 @@ userController.GetCurrentUser = GetCurrentUser;
 userController.GetAllFarmers = GetAllFarmers;
 userController.GetAllExecutives = GetAllExecutives;
 userController.CreateExecutives = CreateExecutives;
+userController.UploadImages = UploadImages;
 module.exports = userController;
 
 
@@ -115,6 +116,15 @@ function CreateExecutives(req, res) {
     });
 }
 
+function UploadImages(req, res) {
+    console.log(req.files);
+    console.log("ANUDEEP");
+    service.user_service.uploadImage(req.query.id, req.files[0].path, req.body.type).then(result => {
+        res.json(result);
+    }, error => {
+        res.json(error);
+    });
+}
 
 
 

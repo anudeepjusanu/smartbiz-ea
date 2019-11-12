@@ -23,6 +23,7 @@ var morganBody = require('morgan-body');
 const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static('uploads'));
 var accessLogStream = rfs('access.log', {
   interval: '1d', // rotate daily
   path: path.join(__dirname, 'log')
@@ -82,8 +83,8 @@ app.use(cors({
 
 mongoose.connect(dburl);
 app.use('/app', require('./app/routes/app_routes'));
-app.use(v1_base_path, expressJwt({ secret: secret }).unless({ path: [v1_base_path + '/authenticate/register', v1_base_path + '/authenticate/login', v1_base_path + '/authenticate/token', v1_base_path + '/order', v1_base_path + '/sales'] }), Router);
-//app.use(v1_base_path, Router);
+//app.use(v1_base_path, expressJwt({ secret: secret }).unless({ path: [v1_base_path + '/authenticate/register', v1_base_path + '/authenticate/login', v1_base_path + '/authenticate/token', v1_base_path + '/order', v1_base_path + '/sales'] }), Router);
+app.use(v1_base_path, Router);
 
 
 // Start your app.

@@ -246,11 +246,18 @@
     float: left;
     display: block;
     width: 100%;
-    min-height: 50px;
+    min-height: 140px;
     margin-top: 0px;
     position: relative;
     text-indent: -999em;
     background: url(../images/logo.png) no-repeat left top;
+    background-position: 10px 0;
+    bottom: 40px;
+}
+
+.compact #logo {
+    min-height: 100px;
+    bottom: 0px;
 }
 
 
@@ -515,7 +522,6 @@
 .logo {
     float: left;
     width: 25%;
-    margin-top: 5px;
 }
 
 .logo2 {

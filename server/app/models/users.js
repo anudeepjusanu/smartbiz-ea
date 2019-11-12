@@ -21,7 +21,13 @@ const Users = new Schema({
     role: { type: String, required: true },
     landInAcres: { type: Number },
     executiveId: { type: String },
-    executiveName: { type: String }
+    executiveName: { type: String },
+    aadharPic: {type: String},
+    aadharPicId: {type: String},
+    landDoc: {type: String},
+    landDocId: {type: String},
+    userImg: {type: String},
+    userImgId: {type: String}
 });
 
 module.exports = mongoose.model('Users', Users);

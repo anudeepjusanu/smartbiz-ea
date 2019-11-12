@@ -4,6 +4,8 @@ var _ = require('underscore');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 var { secret } = require('../../../config');
+var cloud = require('../../../cloudinaryConfig');
+
 
 var service = {};
 service.Authenticate = Authenticate;
@@ -17,6 +19,7 @@ service.GetUserByExecutiveId = GetUserByExecutiveId;
 service.CreateUser = CreateUser;
 service.UpdateUser = UpdateUser;
 service.DeleteUser = DeleteUser;
+service.uploadImage = uploadImage;
 module.exports = service;
 
 
@@ -143,4 +146,16 @@ function DeleteUser(id) {
     });
 }
 
+function uploadImage(userId, file, type){
+    return new Promise((resolve, reject) =>{
+        cloud.uploads(file).then((result) => {
+            var imageDetails = {};
+            imageDetails[type] = result.url;
+            imageDetails[type+"Id"] = result.id;
+            model.Users.findOneAndUpdate({ _id: userId }, { $set: imageDetails }, { new: true }, (err, doc) => {
+                err ? reject(err) : resolve(doc);
+            });
+        });
+    })
+}
 
