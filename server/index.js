@@ -89,7 +89,19 @@ app.use(
 
 mongoose.connect(dburl);
 app.use("/app", require("./app/routes/app_routes"));
-//app.use(v1_base_path, expressJwt({ secret: secret }).unless({ path: [v1_base_path + '/authenticate/register', v1_base_path + '/authenticate/login', v1_base_path + '/authenticate/token', v1_base_path + '/order', v1_base_path + '/sales'] }), Router);
+app.use(
+  v1_base_path,
+  expressJwt({ secret: secret }).unless({
+    path: [
+      v1_base_path + "/authenticate/register",
+      v1_base_path + "/authenticate/login",
+      v1_base_path + "/authenticate/token",
+      v1_base_path + "/order",
+      v1_base_path + "/sales"
+    ]
+  }),
+  Router
+);
 app.use(v1_base_path, Router);
 
 // Start your app.

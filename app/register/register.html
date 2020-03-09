@@ -1,31 +1,77 @@
+<style rel="stylesheet">
+    body {
+        background: #f5f5f5 url(../app/app-content/assets/blur-bg.jpg) left top repeat;
+    }
+    
+    .login-body {
+        background: rgba(0, 0, 0, 0.55) !important;
+    }
+    
+    .form-control,
+    .form-control:focus {
+        background: rgba(0, 0, 0, 0.4) !important;
+        color: #fff !important;
+    }
+    
+    .form-control::-webkit-input-placeholder {
+        color: white !important;
+    }
+    /* WebKit, Blink, Edge */
+    
+    .form-control:-moz-placeholder {
+        color: white !important;
+    }
+    /* Mozilla Firefox 4 to 18 */
+    
+    .form-control::-moz-placeholder {
+        color: white !important;
+    }
+    /* Mozilla Firefox 19+ */
+    
+    .form-control:-ms-input-placeholder {
+        color: white !important;
+    }
+    /* Internet Explorer 10-11 */
+    
+    .form-control::-ms-input-placeholder {
+        color: white !important;
+    }
+    
+    label {
+        color: #fff !important;
+    }
+    /* Microsoft Edge */
+</style>
 <div class="login-container lightmode" style="min-height:650px;">
     <div class="login-box animated fadeInDown" style="width:800px;">
         <div class="login-logo"></div>
         <div class="login-body">
+            <h1 class="login-title"><strong>WELCOME TO RYTHU RAJYAM </strong></h1>
             <div class="login-title"><strong>Register</strong></div>
+
             <form class="form-horizontal" method="post" name="registerForm">
                 <div class="form-group">
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="firstName" name="firstName" ng-model="vm.registerObj.firstName" placeholder="First Name" ng-required="true">
+                        <input type="text" class="form-control" id="firstName" name="firstName" ng-model="vm.registerObj.firstName" placeholder="First Name" ng-required="true" />
                     </div>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="lastName" name="lastName" ng-model="vm.registerObj.lastName" placeholder="Last Name" ng-required="true">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" id="mobile" name="mobile" ng-model="vm.registerObj.mobile" placeholder="Phone" ng-required="true">
-                    </div>
-                    <div class="col-md-6">
-                        <input type="email" class="form-control" id="email" name="email" ng-model="vm.registerObj.email" placeholder="Email">
+                        <input type="text" class="form-control" id="lastName" name="lastName" ng-model="vm.registerObj.lastName" placeholder="Last Name" ng-required="true" />
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="aadhar" name="aadhar" ng-model="vm.registerObj.aadhar" placeholder="Aadhar">
+                        <input type="text" class="form-control" id="mobile" name="mobile" ng-model="vm.registerObj.mobile" placeholder="Phone" ng-required="true" />
                     </div>
                     <div class="col-md-6">
-                        <input type="number" class="form-control" id="landInAcres" name="landInAcres" ng-model="vm.registerObj.landInAcres" placeholder="Land in acres">
+                        <input type="email" class="form-control" id="email" name="email" ng-model="vm.registerObj.email" placeholder="Email" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="aadhar" name="aadhar" ng-model="vm.registerObj.aadhar" placeholder="Aadhar" />
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" class="form-control" id="landInAcres" name="landInAcres" ng-model="vm.registerObj.landInAcres" placeholder="Land in acres" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -35,45 +81,43 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="city" name="city" ng-model="vm.registerObj.city" placeholder="City">
+                        <input type="text" class="form-control" id="city" name="city" ng-model="vm.registerObj.city" placeholder="City" />
                     </div>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="state" name="state" ng-model="vm.registerObj.state" placeholder="State">
+                        <input type="text" class="form-control" id="state" name="state" ng-model="vm.registerObj.state" placeholder="State" />
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-6">
-                        <input type="number" class="form-control" name="pinCode" id="pinCode" ng-model="vm.registerObj.pinCode" placeholder="Pin Code" ng-required="true">
+                        <input type="number" class="form-control" name="pinCode" id="pinCode" ng-model="vm.registerObj.pinCode" placeholder="Pin Code" ng-required="true" />
                     </div>
                     <div class="col-md-6">
-                        <input type="password" class="form-control" name="password" id="password" ng-model="vm.registerObj.password" placeholder="Password" ng-required="true">
+                        <input type="password" class="form-control" name="password" id="password" ng-model="vm.registerObj.password" placeholder="Password" ng-required="true" />
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-4">
                         <label>Aadhar</label>
-                        <input type="file" ngf-select ng-model="vm.files.aadharPic" *ngf-capture="'camera'" name="aadharPic" accept="image/*" ngf-max-size="2MB" ng-required="true" ngf-model-invalid="errorFile">
+                        <input type="file" ngf-select ng-model="vm.files.aadharPic" *ngf-capture="'camera'" name="aadharPic" accept="image/*" ngf-max-size="2MB" ng-required="true" ngf-model-invalid="errorFile" />
                     </div>
                     <div class="col-md-4">
                         <label>Passbook</label>
-                        <input type="file" ngf-select ng-model="vm.files.landDoc" *ngf-capture="'camera'" name="landDoc" accept="image/*" ngf-max-size="2MB" ng-required="true" ngf-model-invalid="errorFile">
+                        <input type="file" ngf-select ng-model="vm.files.landDoc" *ngf-capture="'camera'" name="landDoc" accept="image/*" ngf-max-size="2MB" ng-required="true" ngf-model-invalid="errorFile" />
                     </div>
                     <div class="col-md-4">
                         <label>Profile Pic</label>
-                        <input type="file" ngf-select ng-model="vm.files.userImg" *ngf-capture="'camera'" name="userImg" accept="image/*" ngf-max-size="2MB" ng-required="true" ngf-model-invalid="errorFile">
+                        <input type="file" ngf-select ng-model="vm.files.userImg" *ngf-capture="'camera'" name="userImg" accept="image/*" ngf-max-size="2MB" ng-required="true" ngf-model-invalid="errorFile" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-5">
-
-                    </div>
+                    <div class="col-md-5"></div>
                     <div class="col-md-3">
-                        <button class="btn btn-info" ng-click="vm.register(registerForm)">Register</button>
+                        <button class="btn btn-info" ng-click="vm.register(registerForm)">
+              Register
+            </button>
                         <button class="btn btn-info" ui-sref="login">Login</button>
                     </div>
-                    <div class="col-md-4">
-
-                    </div>
+                    <div class="col-md-4"></div>
                 </div>
             </form>
         </div>
