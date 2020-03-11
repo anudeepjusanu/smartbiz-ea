@@ -79,11 +79,11 @@ app.get("/", (req, res) => {
 
 app.use(
   cors({
-    origin: process.env.CROSS_ORIGIN,
+    origin: "*",
     exposedHeaders: [""],
     methods: "GET,PUT,POST,DELETE",
-    preflightContinue: false,
-    optionsSuccessStatus: 404
+    preflightContinue: true,
+    optionsSuccessStatus: 204
   })
 );
 
