@@ -13,7 +13,7 @@
                 <div class="panel panel-default tabs">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="active"><a href="#tab-first" role="tab" data-toggle="tab">Personal Data</a></li>
-                        <li><a href="#tab-second" role="tab" data-toggle="tab">Services</a></li>
+                        <!-- <li><a href="#tab-second" role="tab" data-toggle="tab">Services</a></li> -->
                     </ul>
                     <div class="panel-body tab-content">
                         <div class="tab-pane active" id="tab-first">
@@ -34,12 +34,12 @@
                                 <div class="col-md-6">
                                     <label for="mobile">Mobile</label>
                                     <input type="text" class="form-control" id="mobile" name="mobile" ng-model="vm.farmer.mobile"
-                                        placeholder="Phone" ng-required="true">
+                                        placeholder="Phone" ng-required="true" ng-disabled="true">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email">Email</label>
                                     <input type="email" class="form-control" id="email" name="email" ng-model="vm.farmer.email"
-                                        placeholder="Email">
+                                        placeholder="Email" ng-disabled="true">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -76,7 +76,7 @@
                                 <div class="col-md-6">
                                     <label for="pinCode">Pin Code</label>
                                     <input type="number" class="form-control" name="pinCode" id="pinCode" ng-model="vm.farmer.pinCode"
-                                        placeholder="Pin Code" ng-required="true">
+                                        placeholder="Pin Code">
                                 </div>
                                 <div class="col-md-6" ng-if="vm.user.role === 'admin'">
                                     <label for="amountUtilized">Total Amount Utilized</label>
@@ -88,7 +88,7 @@
                                 <div class="col-md-6">
                                     <label for="executiveName">Assigned Executive</label>
                                     <input type="text" class="form-control" name="executiveName" id="executiveName"
-                                        ng-model="vm.farmer.executiveName" placeholder="Assigned Executive">
+                                        ng-model="vm.farmer.executiveName" placeholder="Assigned Executive" ng-disabled="true">
                                 </div>
                             </div>
                             <br />
