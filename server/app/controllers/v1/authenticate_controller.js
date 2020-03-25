@@ -22,7 +22,7 @@ function Login(req, res) {
         req.session.token = result.token;
         if (result.token) {
           // authentication successful
-          res.send({ token: result.token });
+          res.send({ token: result.token, id: result.id });
         } else {
           // authentication failed
           res.status(401).send({ error: "Username or password is incorrect" });
