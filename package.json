@@ -55,7 +55,7 @@
         "tinycolor2": "^1.4.1",
         "tracer": "^0.9.8",
         "underscore": "1.9.1",
-        "validator": "^10.11.0",
+        "validator": "^13.7.0",
         "warning": "^4.0.1"
     },
     "devDependencies": {
